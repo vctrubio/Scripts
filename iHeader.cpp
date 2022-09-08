@@ -50,7 +50,7 @@ void	run(char **av)
 		{
 				//open file;
 				createFileStruct(av[i], &file);	
-				cout << "Creating " << file.nameCpp << " & "<< file._nameHpp << endl;
+				cout << "\033[32mCreating\033[0m " << file.nameCpp << " & "<< file.nameHpp << endl;
 
 				//write to file
 				createHpp(&file);
@@ -174,7 +174,7 @@ void	createHpp(iFile *file)
 	f << "public:\n";
 	f << "\t" << file->name << "();\n";
 	f << "\t" << file->name << "(const " << file->name << " &old" << file->name << ");\n";
-	f << "\t" << file->name << "& operator= (const " << file->name << " &old" << file->name << ";\n";
+	f << "\t" << file->name << "& operator= (const " << file->name << " &old" << file->name << "};\n";
 	f << "\t" << "~" << file->name << "()\n}\n\n";
 
 	f << "#endif\n";
