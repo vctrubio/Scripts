@@ -97,7 +97,7 @@ bool	checkFileExist(string filename)
 	string	tmpH = filename + ".hpp";
 	char	c;
 
-	if (( directory= opendir(".")) != NULL)
+	if (( directory = opendir(".")) != NULL)
 	{
 			while ((x = readdir(directory)) != NULL)
 			{
@@ -137,10 +137,8 @@ void	createHeader()
 	f << "#include " << "<cerrno>\n";
 	//Strings library
 	f << "#include " << "<string>\n";
-	f << "#include " << "<format>\n";
 	//Math Library
 	f << "#include " << "<algorithm>\n";
-	f << "#include " << "<math>\n";
 	//C++
 	f << "#include " << "<array>\n";
 	f << "#include " << "<vector>\n";
@@ -153,6 +151,8 @@ void	createHeader()
 	f << "#include " << "<fstream>\n";
 	f << "#include " << "<iostream>\n";
 	f << "#include " << "<iomanip>\n";
+	//Dir Library
+	f << "#include " << "<dirent.h>\n";
 
 	f << "#endif\n";
 	f.close();
