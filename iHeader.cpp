@@ -61,23 +61,16 @@ void	run(char **av)
 };
 
 //FileStruct
+void	toUpper(char &c)
+{
+	if (c >= 'a' && c <= 'z')
+			c -= 32; 
+};
+
 string	strUpper(string	&str)
 {
-	string	cpy;
-
-	for (int i = 0; i < str.length(); i++)	
-	{
-		if (str[i] >= 'a' && str[i] <= 'z')
-				cpy[i] = str[i] - 32;
-		else
-				cpy[i] = str[i];
-		cout << cpy[i] << endl;
-	}
-
-	// string cpy(str.begin(), str.end());
-	cout << cpy << " is copy\n";
-
-	return (cpy);
+	for_each(str.begin(), str.end(), toUpper);
+	return (str);
 };
 
 void	createFileStruct(string name, iFile *file)
