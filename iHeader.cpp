@@ -170,7 +170,7 @@ void	createHpp(iFile *file)
 	//other libraries can go here
 	f << "#include \"Headers.hpp\"\n\n";
 
-	f << "Class " << file->name << endl << "{\n";
+	f << "class " << file->name << endl << "{\n";
 	f << "public:\n";
 	f << "\t" << file->name << "();\n";
 	f << "\t" << file->name << "(const " << file->name << " &old" << file->name << ");\n";
