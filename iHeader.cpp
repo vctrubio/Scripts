@@ -42,7 +42,8 @@ void	run(char **av)
 	iFile	file;
 	int		i;
 
-	createHeader();
+	if (checkFileExist("Headers"))
+		createHeader();
 	i = 0;
 	while (av[++i])
 	{
