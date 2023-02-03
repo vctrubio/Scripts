@@ -15,11 +15,12 @@ string	validateStr(string str)
 		return (str);
 }
 
-void	cpy_file(string src, string dst, DIR *checker)
+void	cpy_file(string src, string dst, string src_name)
 {
 	string		cat;
+	string		name_src;
 
-	cat = dst + src;
+	cat = dst + "/" + src_name;
 	if (access(cat.c_str(), F_OK) != 0) //can't get the bloody thing to work if it exist.
 	{
 		filesystem::copy(src, dst);
@@ -54,7 +55,7 @@ void	itr_dir(string dir_in, string dir_out)
 			{
 				dir_in = validateStr(dir_in);
 				string strPath = dir_in + "/" + dir->d_name;
-				cpy_file(strPath, dir_out, dir_check);	
+				cpy_file(strPath, dir_out, dir->d_name);	
 			}
 		}
 		closedir(ptr);
