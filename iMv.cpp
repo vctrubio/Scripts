@@ -74,12 +74,11 @@ int main(int ac, char **av)
 	}
 	dir = opendir(av[2]);
 	if (!dir)
-			const int dir_err = mkdir(av[2], S_IRWXU | S_IRWXG | S_IROTH | S_IXOTH);
+		const int dir_err = mkdir(av[2], S_IRWXU | S_IRWXG | S_IROTH | S_IXOTH);
 	else
-			closedir(dir);
+		closedir(dir);
 	itr_dir(av[1], av[2]);
 	cout << "COMPLETED.\n";
-
 	return (22);
 
 }
