@@ -155,7 +155,15 @@ void	createHeader()
 	//Dir Library
 	f << "#include " << "<dirent.h>\n";
 
-	f << "#endif\n";
+	//COLORS
+	f << "# define BLACK	\"\033[0;30m\""\n;
+	f << "# define RED	\"\033[0;31m\""\n;
+	f << "# define GREEN	\"\033[0;32m\""\n;
+	f << "# define YELLOW	\"\033[0;33m\""\n;
+	f << "# define BLUE	\"\033[0;34m\""\n;
+	f << "# define WHITE	\"\033[0;37m\""\n;
+	f << "# define ENDC	\"\033[0m\""\n;
+	f << "	f << "#endif\n";;
 	f.close();
 };
 
