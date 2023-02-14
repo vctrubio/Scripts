@@ -42,8 +42,6 @@ void	run(char **av)
 	iFile	file;
 	int		i;
 
-	if (checkFileExist("Headers"))
-		createHeader();
 	i = 0;
 	while (av[++i])
 	{
@@ -164,6 +162,7 @@ void	createHeader()
 	f << "# define WHITE	\"\033[0;37m\"\n";
 	f << "# define ENDC	\"\033[0m\"\n";
 	f << "#endif\n";
+
 	f.close();
 };
 
@@ -181,10 +180,8 @@ void	createHpp(iFile *file)
 
 	f << "class " << file->name << endl << "{\n";
 	f << "public:\n";
-	f << "\t" << file->name << "();\n";
-	f << "\t" << file->name << "(const " << file->name << " &old" << file->name << ");\n";
-	f << "\t" << file->name << "& operator= (const " << file->name << " &old" << file->name << ");\n";
-	f << "\t" << "~" << file->name << "();\n};\n\n";
+	f << "\t" << file->name << "(){};\n";
+	f << "\t" << "~" << file->name << "(){};\n};\n\n";
 
 	f << "#endif\n";
 	f.close();
@@ -199,10 +196,6 @@ void	createCpp(iFile *file)
 
 	f << "#include \"" << file->nameHpp << "\"\n\n"; 
 	
-	f << name << "::" << name << "()\n{}\n\n";
-	f << name << "::" << name << "(const " << name << " &old" << name << ")\n{}\n\n";
-	f << name << "& " << name << "::operator= (const " << name << " &old" << name << ")\n{\n\treturn (*this);\n}\n\n";
-	f << name << "::~" << name << "()\n{}\n";
 	f.close();
 };
 
